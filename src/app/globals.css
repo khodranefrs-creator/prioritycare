@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-plex-sans-arabic), var(--font-inter), ui-sans-serif, system-ui,
+    sans-serif;
+  --font-display: var(--font-inter), var(--font-plex-sans-arabic), ui-sans-serif, system-ui,
+    sans-serif;
+
+  /* Ink — the near-black studio base */
+  --color-ink: #0e0f11;
+  --color-ink-soft: #141619;
+  --color-ink-raised: #1a1d21;
+  --color-ink-line: rgba(235, 231, 222, 0.1);
+
+  /* Bone — warm editorial light */
+  --color-bone: #efece4;
+  --color-bone-dust: #e6e1d4;
+
+  /* Brass — the single warm accent */
+  --color-brass: #c9a96a;
+  --color-brass-bright: #d9bd83;
+  --color-brass-deep: #a8874e;
+
+  /* Text tones */
+  --color-cream: #f4f1ea;
+  --color-mist: #a9a49b;
+  --color-fog: #7b766d;
+
+  /* Misc */
+  --color-alert: #d0646a;
+
+  --tracking-display: -0.03em;
+  --tracking-wide-2: 0.22em;
+  --tracking-wide-3: 0.34em;
+
+  --shadow-raise: 0 24px 60px -30px rgb(0 0 0 / 0.65);
+  --shadow-line: inset 0 0 0 1px var(--color-ink-line);
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  * {
+    border-color: var(--color-ink-line);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scrollbar-gutter: stable;
+  }
+
+  body {
+    background-color: var(--color-ink);
+    color: var(--color-cream);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: var(--color-brass);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brass);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer utilities {
+  .tracking-display {
+    letter-spacing: var(--tracking-display);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Editorial hairline used on light sections */
+  .line-light {
+    border-color: rgba(14, 15, 17, 0.12);
+  }
+
+  /* Masked fade helper for hero imagery */
+  .mask-fade-b {
+    -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+  }
+
+  .mask-fade-r {
+    -webkit-mask-image: linear-gradient(to right, black 45%, transparent 100%);
+    mask-image: linear-gradient(to right, black 45%, transparent 100%);
+  }
+}
+
+/* Respect RTL for edge cases Tailwind doesn't flip by default */
+[dir="ltr"] .mirror-ltr {
+  transform: scaleX(-1);
+}
+
+[dir="rtl"] .mirror-rtl {
+  transform: scaleX(-1);
+}
