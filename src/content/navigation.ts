@@ -48,7 +48,7 @@ export const navigationLinks: NavLink[] = [
         href: "/services/detailing-polishing",
         index: { ar: "٠٤", en: "04" },
         description: {
-          ar: "عناية شاملة ووإعادة اللمعان",
+          ar: "عناية شاملة وإعادة اللمعان",
           en: "Complete care and gloss restoration",
         },
       },

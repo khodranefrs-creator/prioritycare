@@ -44,7 +44,7 @@ export const ui = {
     why: {
       kicker: { ar: "لماذا أولوية العناية", en: "Why Priority Care" } satisfies L10n,
       title: {
-        ar: "منهجية دقيقة تُحافظ على نهر السيارة",
+        ar: "منهجية دقيقة تُحافظ على قيمة السيارة",
         en: "A precise approach that protects your car's value",
       } satisfies L10n,
     },
