@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type { Locale } from "@/lib/i18n";
-import { localePath } from "@/lib/i18n";
-import { heroImage, unsplashUrl } from "@/content/images";
+import { getDirection, localePath } from "@/lib/i18n";
+import { homepageHero } from "@/content/images";
 import { bookingCta, secondaryCta } from "@/content/navigation";
 import { ui } from "@/content/ui";
 import { business, whatsappHref } from "@/content/business";
@@ -27,19 +27,27 @@ const heroCopy = {
 
 export function Hero({ locale }: { locale: Locale }) {
   const copy = heroCopy[locale];
+  const dir = getDirection(locale);
   return (
     <section className="relative flex min-h-[100svh] items-end overflow-hidden pt-[72px]">
       <div className="absolute inset-0">
         <Image
-          src={unsplashUrl(heroImage.id, { w: 1920 })}
-          alt={heroImage.alt[locale]}
+          src={homepageHero.id}
+          alt={homepageHero.alt[locale]}
           fill
           priority
+          quality={82}
           sizes="100vw"
-          className="object-cover opacity-70"
+          className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-ink/25" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink/70 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-ink/10" />
+        <div
+          className={`absolute inset-0 ${
+            dir === "rtl"
+              ? "bg-gradient-to-l from-ink/70 via-ink/25 to-transparent"
+              : "bg-gradient-to-r from-ink/70 via-ink/25 to-transparent"
+          }`}
+        />
       </div>
 
       <Container className="relative flex min-h-[calc(100svh-72px)] flex-col justify-end pb-20 pt-16 md:pb-24">

@@ -22,15 +22,20 @@ export interface Photo {
   h: number;
 }
 
-export const heroImage: Photo = {
-  id: "photo-1552519507-da3b142c6e3d",
+/**
+ * The real Priority Care workshop photograph used as the homepage hero.
+ * Local asset at `/public/images/homepage.png` (source 1671×941).
+ * This is the actual workshop — never replaced with stock imagery.
+ */
+export const homepageHero: Photo = {
+  id: "/images/homepage.png",
   alt: {
-    ar: "سيارة رياضية فاخرة في بيئة مظلمة",
-    en: "Premium sports car in a dark environment",
+    ar: "ورشة أولوية العناية المتخصصة في حماية وتجهيز السيارات بالرياض",
+    en: "Priority Care's specialist car protection and care workshop in Riyadh",
   },
-  credit: "Unsplash",
-  w: 1600,
-  h: 1067,
+  credit: "Priority Care",
+  w: 1671,
+  h: 941,
 };
 
 /** Atmospheric car photos used across service pages and editorial sections. */
